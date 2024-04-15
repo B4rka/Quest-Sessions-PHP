@@ -1,4 +1,8 @@
-<?php //@todo start PHP session ?>
+<?php //@todo start PHP session 
+session_start();
+$contact = $_SESSION['form'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,11 +24,17 @@
         <p>
             Your message is being processed.
             <br>
-            Our team will get back to you within 48 hours.
+            Our team will get back to you within 48 hours at <?= $contact['email']?>.
         </p>
         <p>
             Have a nice day and see you soon 🙂
         </p>
+
+        <h2>You have contacted us for :</h2>
+        <ul>
+            <li>Subject : <?= $contact['subject']?></li>
+            <li>Message : <?= $contact['message']?></li>
+        </ul>
     </main>
     <?php include '_footer.php' ?>
 </body>

@@ -1,5 +1,6 @@
 <?php
 //@todo start PHP session
+session_start();
 $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $contact = array_map('trim', $_POST);
@@ -17,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     if (empty($errors)) {
         //@todo save contact form data to session
+        $_SESSION['form'] = $contact;
         header('Location: result.php');
         exit();
     }
